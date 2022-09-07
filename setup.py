@@ -1,32 +1,6 @@
-from window import window
+from window import *
 from tkinter import *
 from tkinter.messagebox import showinfo, showerror
-
-
-
-def bt1():
-    pass
-
-
-def bt2():
-    pass
-
-
-def bt3():
-    pass
-
-
-def bt4():
-    pass
-
-
-def bt5():
-    pass
-
-
-def bt6():
-    pass
-
 
 def clicked_bt1():
     print('Open... ')
@@ -34,7 +8,7 @@ def clicked_bt1():
 conect = []
 conect1 = []
 
-def clicked_bt2():
+def loginCadastro():
 
 
     def cadastrar():
@@ -43,14 +17,14 @@ def clicked_bt2():
         loginp = ({password_entry1.get()})
         conect.append(logine)
         conect1.append(loginp)
-        print(conect, conect1)
-        if logine == conect and loginp == conect1:
+        print(list(conect), list(conect1))
+        if logine in list(conect) and loginp in list(conect1):
             showinfo(title='Informação', message='Cadastrado com sucesso!')
             master1.destroy()
         else:
             showerror(title='Informação', message='Cadastrado Não Realizado!')
             master1.destroy()
-            return clicked_bt2()
+            return loginCadastro()
 
     master1 = Tk()
     master1.iconbitmap()
@@ -95,26 +69,22 @@ labelLayout.place(x=0, y=0)
 # Conf de Botoes
 bt1 = Button(vr, text='Abrir', font='Arial 10', command=clicked_bt1)
 bt1.place(width=70, height=30, x=37, y=34)
-bt2 = Button(vr, text='Cadastrar', font='Arial 10', command=clicked_bt2)
+bt2 = Button(vr, text='Cadastrar', font='Arial 10', command=loginCadastro)
 bt2.place(width=70, height=30, x=385, y=34)
 
 email = StringVar()
 password = StringVar()
 
-
-
 def clicked_login():
 
 
-    logine = ([{email_entry.get()}])
-    loginp = ([{password_entry.get()}])
+    logine = ({email_entry.get()})
+    loginp = ({password_entry.get()})
     print(logine, loginp)
-    if logine == conect and loginp == conect1:
+    if logine == conect[0] and loginp == conect1[0]:
         showinfo(title='Informação', message='Logado com sucesso!')
         vr.destroy()
         return window()
-    elif logine.clear():
-        showerror(title='Erro', message='Login informado errado! ')
     else:
         showerror(title='Erro', message='Login informado errado! ')
 
