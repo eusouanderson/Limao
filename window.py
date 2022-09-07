@@ -41,7 +41,8 @@ def bot1():
     cProdu_entry.pack(fill='x', expand=True)
     cProdu_entry.focus()
 
-    return window()
+
+    return window, cProdu.destroy()
 def bot2():
     screen['text'] = 'Apagando Produto...'
 
@@ -60,4 +61,3 @@ def bot5():
 def bot6():
     screen['text'] = 'Ferramentas...'
 
-window()
