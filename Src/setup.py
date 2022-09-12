@@ -100,10 +100,34 @@ labelLayout = Label(vr, image=layout)
 labelLayout.place(x=0, y=0)
 
 # Conf de Botoes
-bt1 = Button(vr, font='Arial 10', bd=5, text='Abrir', command=clicked_bt1, bg=rgb_hack((175, 228, 228)))
-bt1.place(width=70, height=30, x=37, y=34)
-bt2 = Button(vr, text='Cadastrar', font='Arial 10', bd=5, command=loginCadastro, bg=rgb_hack((175, 228, 228)))
-bt2.place(width=70, height=30, x=385, y=34)
+bt1 = Button(vr,
+             bd=5,
+             text='Abrir',
+             command=clicked_bt1,
+             width=5,
+             borderwidth=5,
+             activeforeground='red',
+             padx=5
+             )
+bt1.place(width=70,
+          height=30,
+          x=37,
+          y=34
+          )
+bt2 = Button(vr,
+             text='Cadastrar',
+             bd=5,
+             command=loginCadastro,
+             width=5,
+             borderwidth=5,
+             activeforeground='red',
+             padx=5
+             )
+bt2.place(width=70,
+          height=30,
+          x=385,
+          y=34
+          )
 
 
 def clicked_login():
@@ -120,50 +144,136 @@ def clicked_login():
 
 # Email
 login = Frame(vr)
-login_button = Button(login, text="Logar", bd=5, command=clicked_login)
-login_button.pack(fill='x', expand=True, pady=10)
-login.pack(padx=30, pady=30, fill='x', expand=True)
+login_button = Button(login,
+                      text="Logar",
+                      bd=5,
+                      command=clicked_login,
+                      width=15,
+                      borderwidth=5,
+                      activeforeground='red', padx=5)
+login_button.pack(fill='x',
+                  expand=True,
+                  pady=10)
+login.pack(padx=30,
+           pady=30,
+           fill='x',
+           expand=True)
 
-email_label = Label(login, text="Endereço de Email:")
-email_label.pack(fill='x', expand=True)
+email_label = Label(login,
+                    text="Endereço de Email:")
+email_label.pack(fill='x',
+                 expand=True)
 
-email_entry = Entry(login, bd=5)
-email_entry.pack(fill='x', expand=True)
+email_entry = Entry(login,
+                    bd=5)
+email_entry.pack(fill='x',
+                 expand=True)
 email_entry.focus()
 
 # Password
-password_label = Label(login, text="Senha:")
-password_label.pack(fill='x', expand=True)
+password_label = Label(login,
+                       text="Senha:")
+password_label.pack(fill='x',
+                    expand=True)
 
-password_entry = Entry(login, bd=5, show="*")
-password_entry.pack(fill='x', expand=True)
+password_entry = Entry(login,
+                       bd=5, show="*")
+password_entry.pack(fill='x',
+                    expand=True)
+
 
 
 def window():
     global screen
     window = Tk()
     window.colormapwindows()
-    window.geometry('490x500+400+100')
-    window.resizable(True, True)
+    window.attributes('-fullscreen', True)
+    window.bind("<F11>")
     window.title('Menu')
-    screen = Label(window, text='', font=30, takefocus=True, bd=5)
-    screen.grid(row=6, column=1)
+    screen = Label(window, text='', font=("Times", 20), bd=5, relief='ridge')
+    screen.grid(row=0, column=1)
     # window.wm_resizable(width=False, height=False)
     wi = 15
-    Button(window, foreground='red', width=wi, borderwidth=10)
-    bt1 = Button(window, foreground='#F5F5F5', text='Cadastrar Produto', image='', width=wi, borderwidth=5, command=bot1)
-    bt2 = Button(window, foreground='red', text='Apagar Produto', image='', width=wi, borderwidth=5, command=bot2)
-    bt3 = Button(window, foreground='red', text='Editar Produto', image='', width=wi, borderwidth=5, command=bot3)
-    bt4 = Button(window, foreground='red', text='Calcular', image='', width=wi, borderwidth=5, command=bot4)
-    bt5 = Button(window, foreground='red', text='Valores', image='', width=wi, borderwidth=5, command=bot5)
-    bt6 = Button(window, foreground='red', text='Ferramentas', image='', width=wi, borderwidth=5, command=bot6)
+    Button(window, foreground='red', width=wi, borderwidth=10, activeforeground='red', padx=5)
+    bt1 = Button(window,
+                 foreground='blue',
+                 text='Cadastrar Produto',
+                 image='',
+                 width=wi,
+                 borderwidth=5,
+                 activeforeground='red',
+                 padx=5,
+                 command=bot1
+                 )
+    bt2 = Button(window,
+                 foreground='blue',
+                 text='Apagar Produto',
+                 image='',
+                 width=wi,
+                 borderwidth=5,
+                 activeforeground='red',
+                 padx=5,
+                 command=bot2
+                 )
+    bt3 = Button(window,
+                 foreground='blue',
+                 text='Editar Produto',
+                 image='',
+                 width=wi,
+                 borderwidth=5,
+                 activeforeground='red',
+                 padx=5,
+                 command=bot3
+                 )
+    bt4 = Button(window,
+                 foreground='blue',
+                 text='Calcular',
+                 image='',
+                 width=wi,
+                 borderwidth=5,
+                 activeforeground='red',
+                 padx=5,
+                 command=bot4
+                 )
+    bt5 = Button(window,
+                 foreground='blue',
+                 text='Valores',
+                 image='',
+                 width=wi,
+                 borderwidth=5,
+                 activeforeground='red',
+                 padx=5,
+                 command=bot5
+                 )
+    bt6 = Button(window,
+                 foreground='blue',
+                 text='Ferramentas',
+                 image='',
+                 width=wi,
+                 borderwidth=5,
+                 activeforeground='red',
+                 padx=5,
+                 command=bot6
+                 )
+    bt7 = Button(window,
+                 foreground='red',
+                 text='Sair',
+                 image='',
+                 width=wi,
+                 borderwidth=5,
+                 padx=5,
+                 command=bot7,
+                 background='red'
+
+                 )
     bt1.grid(row=0, column=0)
     bt2.grid(row=1, column=0)
     bt3.grid(row=2, column=0)
     bt4.grid(row=3, column=0)
     bt5.grid(row=4, column=0)
     bt6.grid(row=5, column=0)
-    #bvindo()
+    bt7.grid(row=8, column=0)
+    bvindo()
     window.mainloop()
 
 
@@ -177,32 +287,57 @@ def bot1():
 
     # Nome do produto
 
-    cProdu_label = Label(cProdu, text='Nome do Produto', bd=5, borderwidth=10, font=50, takefocus=True, )
+    cProdu_label = Label(cProdu,
+                         text='Nome do Produto',
+                         bd=5,
+                         borderwidth=5,
+                         font=50,
+                         takefocus=True,
+                         )
     cProdu_label.pack()
     cProdu_entry = Entry(cProdu, border=5)
     cProdu_entry.pack(expand=True, padx=10, pady=10, fill='x')
 
     # Valores
 
-    cProduv_label = Label(cProdu, text='Valor', bd=5, borderwidth=10, font=50, takefocus=True, )
+    cProduv_label = Label(cProdu,
+                          text='Valor',
+                          bd=5,
+                          borderwidth=5,
+                          font=50,
+                          takefocus=True,
+                          )
     cProduv_label.pack()
     cProduv_entry = Entry(cProdu, border=5)
     cProduv_entry.pack(expand=True, padx=10, pady=10, fill='x')
 
     # Botão
-    cProdu_button = Button(cProdu, text="Cadastrar", command=cprod)
+    cProdu_button = Button(cProdu,
+                           text="Cadastrar",
+                           foreground='blue',
+                           image='',
+                           width=15,
+                           borderwidth=10,
+                           activeforeground='red',
+                           padx=5,
+                           command=cprod
+                           )
     cProdu_button.pack(expand=True, pady=5, padx=5)
     cProdu_button.focus()
     return window
 
 
 def cprod():
-    produtos = ['Produto: {} Valor: {}'.format(cProdu_entry.get(), cProduv_entry.get())]
-    print(produtos)
+    global produtos
+
+    produtos = (f'Produto: {cProdu_entry.get()} Valor: R${cProduv_entry.get()},00'.replace('{}', ''))
+    produtos = produtos.replace('{}', '')
+    screen['text'] = 'Ultimo Cadastrado', produtos
     cProdu.destroy()
 
     with open('produtos.txt', 'w') as f:
         f.write(f'{produtos}\n')
+        return '\n', f.write(f'{produtos}\n')
 
 
 
@@ -216,8 +351,6 @@ def bvindo():
 
 
 def bot2():
-    screen['text'] = 'Apagando Produto...'
-
     return
 
 
@@ -245,7 +378,12 @@ def bot6():
     return
 
 
-window()
+def bot7():
+    login.quit()
+
+
+
+#window()
 
 
 login.mainloop()
