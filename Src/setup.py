@@ -146,7 +146,7 @@ def window():
     window.geometry('490x500+400+100')
     window.resizable(True, True)
     window.title('Menu')
-    screen = Label(window, text='', font=30, takefocus=True)
+    screen = Label(window, text='', font=30, takefocus=True, bd=5)
     screen.grid(row=6, column=1)
     # window.wm_resizable(width=False, height=False)
     wi = 15
@@ -163,7 +163,7 @@ def window():
     bt4.grid(row=3, column=0)
     bt5.grid(row=4, column=0)
     bt6.grid(row=5, column=0)
-    bvindo()
+    #bvindo()
     window.mainloop()
 
 
@@ -193,7 +193,6 @@ def bot1():
     cProdu_button = Button(cProdu, text="Cadastrar", command=cprod)
     cProdu_button.pack(expand=True, pady=5, padx=5)
     cProdu_button.focus()
-
     return window
 
 
@@ -201,8 +200,10 @@ def cprod():
     produtos = ['Produto: {} Valor: {}'.format(cProdu_entry.get(), cProduv_entry.get())]
     print(produtos)
     cProdu.destroy()
+
     with open('produtos.txt', 'w') as f:
-        f.write('{}\n'.format(produtos))
+        f.write(f'{produtos}\n')
+
 
 
 def bvindo():
@@ -244,7 +245,7 @@ def bot6():
     return
 
 
-# window()
+window()
 
 
 login.mainloop()
