@@ -3,9 +3,6 @@ from tkinter.messagebox import showinfo, showerror
 from datetime import date
 
 
-def rgb_hack(rgb):
-    return "#%02x%02x%02x" % rgb
-
 
 def clicked_bt1():
     print(name, conect1, conect)
@@ -74,7 +71,7 @@ def loginCadastro():
     password_entry1.pack(fill='x', expand=True)
 
     # Password Repeat
-    password_label2 = Label(login1, text="Repeta sua senha :")
+    password_label2 = Label(login1, text="Redefinir Senha:")
     password_label2.pack(fill='x', expand=True)
 
     password_entry2 = Entry(login1, bd=5, show="*")
@@ -83,12 +80,11 @@ def loginCadastro():
 
 # Login
 vr = Tk()
-DesignerBvr = Button(vr, font='Arial 10', bd=5, command=clicked_bt1, bg=rgb_hack((175, 228, 228)))
 
 icon = PhotoImage(master=vr, file='icon.png')
 vr.wm_iconphoto(True, icon)
 vr.title('Login')
-vr.config(bg=rgb_hack((175, 238, 238)))
+vr.config(bg='')
 vr.geometry('490x500+400+100')  # largura x altura dist esq + dist top
 vr.wm_resizable(width=False, height=False)
 
