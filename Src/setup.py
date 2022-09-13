@@ -3,7 +3,6 @@ from tkinter.messagebox import showinfo, showerror
 from datetime import date
 
 
-
 def clicked_bt1():
     print(name, conect1, conect)
 
@@ -80,7 +79,6 @@ def loginCadastro():
 
 # Login
 vr = Tk()
-
 icon = PhotoImage(master=vr, file='icon.png')
 vr.wm_iconphoto(True, icon)
 vr.title('Login')
@@ -178,10 +176,10 @@ password_entry.pack(fill='x',
                     expand=True)
 
 
-
 def window():
     global screen
     window = Tk()
+    window.config(bg='#8ed49f')
     window.colormapwindows()
     window.attributes('-fullscreen', True)
     window.bind("<F11>")
@@ -252,14 +250,15 @@ def window():
                  command=bot6
                  )
     bt7 = Button(window,
-                 foreground='red',
                  text='Sair',
+
                  image='',
                  width=wi,
                  borderwidth=5,
                  padx=5,
                  command=bot7,
-                 background='red'
+                 background='red',
+                 foreground='blue',
 
                  )
     bt1.grid(row=0, column=0)
@@ -336,13 +335,12 @@ def cprod():
         return '\n', f.write(f'{produtos}\n')
 
 
-
 def bvindo():
     data_atual = date.today()
     data_em_texto = '0{} / 0{} / {}'.format(data_atual.day, data_atual.month, data_atual.year)
     print(data_em_texto)
 
-    screen.grid(row=0, column=2, padx=5, pady=5)
+    screen.grid(row=10, column=2, padx=5, pady=5)
     screen['text'] = 'Bem Vindo', name[0], data_em_texto[0:]
 
 
@@ -378,8 +376,7 @@ def bot7():
     login.quit()
 
 
-
-#window()
+# window()
 
 
 login.mainloop()
