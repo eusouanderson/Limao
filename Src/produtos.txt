@@ -1,2 +1,2 @@
-Produto:  Valor: R$,00
-Produto:  Valor: R$,00
+Produto: Bolsa Valor: R$50,00
+Produto: Bolsa Valor: R$50,00

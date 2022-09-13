@@ -40,22 +40,22 @@ def loginCadastro():
     master1 = Tk()
     icon = PhotoImage(master=master1, file='icon.png')
     master1.wm_iconphoto(True, icon)
+    master1.config(bg='#5d8aa8')
     master1.title('Cadastro')
     master1.geometry('290x500+510+100')  # largura x altura dist esq + dist top
     master1.wm_resizable(width=False, height=False)
     login1 = Frame(master1)
-    login_button1 = Button(login1, text="Cadastrar", command=cadastrar)
-    login_button1.pack(fill='x', expand=True, pady=10)
+    login1.config(bg='#5d8aa8')
     login1.pack(padx=30, pady=30, fill='x', expand=True)
     # Nome
-    nome_entry = Label(login1, text="Nome :")
+    nome_entry = Label(login1, text="Nome :", bg='#5d8aa8')
     nome_entry.pack(fill='x', expand=True)
 
     nome_entry = Entry(login1, bd=5)
     nome_entry.pack(fill='x', expand=True)
     nome_entry.focus()
 
-    email_label1 = Label(login1, text="Endereço de Email :")
+    email_label1 = Label(login1, text="Endereço de Email :", bg='#5d8aa8')
     email_label1.pack(fill='x', expand=True)
 
     email_entry1 = Entry(login1, bd=5)
@@ -63,26 +63,40 @@ def loginCadastro():
     email_entry1.focus()
 
     # Password
-    password_label1 = Label(login1, text="Senha :")
+    password_label1 = Label(login1, text="Senha :", bg='#5d8aa8')
     password_label1.pack(fill='x', expand=True)
 
     password_entry1 = Entry(login1, bd=5, show="*")
     password_entry1.pack(fill='x', expand=True)
 
     # Password Repeat
-    password_label2 = Label(login1, text="Redefinir Senha:")
+    password_label2 = Label(login1, text="Redefinir Senha:", bg='#5d8aa8')
     password_label2.pack(fill='x', expand=True)
 
     password_entry2 = Entry(login1, bd=5, show="*")
     password_entry2.pack(fill='x', expand=True)
 
+    # Botão Cadastrar
+    login_button1 = Button(login1,
+                           text="Cadastrar",
+                           bd=5,
+                           width=15,
+                           borderwidth=5,
+                           activeforeground='red',
+                           padx=10,
+                           pady=5,
+                           command=cadastrar,
+                           )
+    login_button1.pack(fill='x',
+                  expand=False,
+                  pady=10)
 
 # Login
 vr = Tk()
 icon = PhotoImage(master=vr, file='icon.png')
 vr.wm_iconphoto(True, icon)
 vr.title('Login')
-vr.config(bg='')
+vr.config(bg='#5d8aa8')
 vr.geometry('490x500+400+100')  # largura x altura dist esq + dist top
 vr.wm_resizable(width=False, height=False)
 
@@ -138,23 +152,15 @@ def clicked_login():
 
 # Email
 login = Frame(vr)
-login_button = Button(login,
-                      text="Logar",
-                      bd=5,
-                      command=clicked_login,
-                      width=15,
-                      borderwidth=5,
-                      activeforeground='red', padx=5)
-login_button.pack(fill='x',
-                  expand=True,
-                  pady=10)
-login.pack(padx=30,
+login.config(bg='#5d8aa8')
+
+login.pack(padx=3,
            pady=30,
            fill='x',
            expand=True)
 
 email_label = Label(login,
-                    text="Endereço de Email:")
+                    text="Endereço de Email:", background='white', bg='#5d8aa8')
 email_label.pack(fill='x',
                  expand=True)
 
@@ -166,7 +172,7 @@ email_entry.focus()
 
 # Password
 password_label = Label(login,
-                       text="Senha:")
+                       text="Senha:", background='white', bg='#5d8aa8')
 password_label.pack(fill='x',
                     expand=True)
 
@@ -174,6 +180,22 @@ password_entry = Entry(login,
                        bd=5, show="*")
 password_entry.pack(fill='x',
                     expand=True)
+
+# Botão Login
+login_button = Button(login,
+                      text="Logar",
+                      bd=5,
+                      command=clicked_login,
+                      width=15,
+                      borderwidth=5,
+                      activeforeground='red',
+                      padx=5,
+
+                      )
+
+login_button.pack(fill='x',
+                  expand=True,
+                  pady=10)
 
 
 def window():
@@ -306,7 +328,7 @@ def bot1():
     cProduv_entry = Entry(cProdu, border=5)
     cProduv_entry.pack(expand=True, padx=10, pady=10, fill='x')
 
-    # Botão
+    # Botão Cadastrar
     cProdu_button = Button(cProdu,
                            text="Cadastrar",
                            foreground='blue',
@@ -323,7 +345,7 @@ def bot1():
 
 
 def cprod():
-    global produtos
+
 
     produtos = (f'Produto: {cProdu_entry.get()} Valor: R${cProduv_entry.get()},00'.replace('{}', ''))
     produtos = produtos.replace('{}', '')
