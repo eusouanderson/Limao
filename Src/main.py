@@ -199,17 +199,27 @@ login_button.pack(fill='x',
 
 
 def window():
-    global screen , screen1
+    global screen , screen1, screen2, screen3, screen4, screen5
     window = Tk()
     window.config(bg='#5d8aa8')
     window.colormapwindows()
-    window.attributes('-fullscreen', True)
+    #window.attributes('-fullscreen', True)
+    window.geometry('900x400')
     window.title('Menu')
-    screen = Label(window, text='', font=("Times", 20), bd=5, relief='ridge')
-    screen.grid(column=8, row=9)
+    screen = Label(window, text='Cadastrando Produto', font=("Times", 20), bd=5, relief='ridge', borderwidth= 10,
+                   width=50, height=1, compound='left')
+    screen1= Label(window, text='Cadastrando Produto', font=("Times", 20), bd=5, relief='ridge', borderwidth= 10,
+                   width=50, height=1, compound='left')
+    screen2 = Label(window, text='Cadastrando Produto', font=("Times", 20), bd=5, relief='ridge', borderwidth=10,
+                    width=50, height=1, compound='left')
+    screen3 = Label(window, text='Cadastrando Produto', font=("Times", 20), bd=5, relief='ridge', borderwidth=10,
+                    width=50, height=1, compound='left')
+    screen4 = Label(window, text='Cadastrando Produto', font=("Times", 20), bd=5, relief='ridge', borderwidth=10,
+                    width=50, height=1, compound='left')
+    screen5 = Label(window, text='Cadastrando Produto', font=("Times", 20), bd=5, relief='ridge', borderwidth=10,
+                    width=50, height=1, compound='left')
+
     window.title('Menu')
-    screen1 = Label(window, text='', font=("Times", 20), bd=5, relief='ridge')
-    screen1.grid(column=8, row=10)
     # window.wm_resizable(width=False, height=False)
     wi = 15
     Button(window, foreground='red', width=wi, borderwidth=10, activeforeground='red', padx=5)
@@ -280,18 +290,18 @@ def window():
                  width=wi,
                  borderwidth=5,
                  padx=5,
-                 command=bot7,
+                 command=exit,
                  background='red',
                  foreground='blue',
 
                  )
     bott1.grid(row=0, column=0)
-    bott2.grid(row=1, column=0)
-    bott3.grid(row=2, column=0)
-    bott4.grid(row=3, column=0)
-    bott5.grid(row=4, column=0)
-    bott6.grid(row=5, column=0)
-    bott7.grid(row=8, column=0)
+    bott2.grid(row=0, column=1)
+    bott3.grid(row=0, column=2)
+    bott4.grid(row=0, column=3)
+    bott5.grid(row=0, column=4)
+    bott6.grid(row=0, column=5)
+    bott7.grid(row=0, column=6)
     #bvindo()
     window.mainloop()
 
@@ -302,7 +312,7 @@ def botCadastrar():
     cProdu.colormapwindows()
     cProdu.geometry('490x250+400+100')
     cProdu.title('Cadastrando Produto')
-    screen['text'] = 'Cadastrando Produto... '
+    screen['text'] = ''
 
     # Nome do produto
 
@@ -345,54 +355,54 @@ def botCadastrar():
     cProdu_button.focus()
     return window
 
-
-def cprod():
-    global produtos
-
-    produtos = (f'Produto: {cProdu_entry.get()} Valor: R${cProduv_entry.get()},00'.replace('{}', ''))
-    screen['text'] = 'Ultimo Cadastrado', produtos
-    cProdu.destroy()
-
-    with open('produtos.txt', 'w') as f:
-        while produtos == True:
-            f.write(f'{produtos}\n')
-        return '\n', f.write(f'{produtos}\n')
-        produtos = False
-
-
 def bvindo():
     data_atual = date.today()
     data_em_texto = '0{} / 0{} / {}'.format(data_atual.day, data_atual.month, data_atual.year)
     print(data_em_texto)
-
     screen.grid(row=10, column=2, padx=5, pady=5)
     screen['text'] = 'Bem Vindo', name[0], data_em_texto[0:]
 
+def cprod():
+    produtos = []
+
+    produtos.append(('Produto:',cProdu_entry.get()))
+    produtos.append(('Valor: R$',cProduv_entry.get()))
+    print(produtos)
+    screen['text'] = 'Ultimo Cadastrado', produtos
+    screen.place(x=10, y=50)
+    with open('produtos.txt', 'w') as f:
+        f.write(f'{produtos}')
+    screen1['text'] = 'Ultimo Cadastrado', produtos
+    screen1.place(x=10, y=105)
+    screen2['text'] = 'Ultimo Cadastrado', produtos
+    screen2.place(x=10, y=160)
+    screen3['text'] = 'Ultimo Cadastrado', produtos
+    screen3.place(x=10, y=215)
+    screen4['text'] = 'Ultimo Cadastrado', produtos
+    screen4.place(x=10, y=270)
+    screen5['text'] = 'Ultimo Cadastrado'
+    screen5.place(x=10, y=325)
+
+    return produtos
+    cProdu.destroy()
+
 
 def bot2():
-    listaProdutos = [listaProdutos.append(produtos)]
-    with open('produtos.txt', 'w') as v:
-        v.write((f'{listaProdutos}'))
-
+    screen1['text'] = 'Bot 2'
+    screen.place(x=10, y=50)
 
 def bot3():
-
-    screen1['text'] = produtos
-
-    return
-
+    screen1['text'] = 'Bot 2'
 
 def bot4():
     screen['text'] = 'Calculando Produto...'
 
     return
 
-
 def bot5():
     screen['text'] = 'Valores Produto...'
 
     return
-
 
 def bot6():
     screen['text'] = 'Ferramentas...'
@@ -400,8 +410,9 @@ def bot6():
     return
 
 
-def bot7():
+def exit():
     login.quit()
+
 
 
 window()

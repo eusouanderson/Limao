@@ -1,1 +1,1 @@
-Produto: Santos Valor: R$180,00
+[('Produto:', 'Camisa'), ('Valor: R$', '180')]
