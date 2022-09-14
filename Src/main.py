@@ -199,19 +199,21 @@ login_button.pack(fill='x',
 
 
 def window():
-    global screen
+    global screen , screen1
     window = Tk()
-    window.config(bg='#8ed49f')
+    window.config(bg='#5d8aa8')
     window.colormapwindows()
     window.attributes('-fullscreen', True)
-    window.bind("<F11>")
     window.title('Menu')
     screen = Label(window, text='', font=("Times", 20), bd=5, relief='ridge')
-    screen.grid(row=0, column=1)
+    screen.grid(column=8, row=9)
+    window.title('Menu')
+    screen1 = Label(window, text='', font=("Times", 20), bd=5, relief='ridge')
+    screen1.grid(column=8, row=10)
     # window.wm_resizable(width=False, height=False)
     wi = 15
     Button(window, foreground='red', width=wi, borderwidth=10, activeforeground='red', padx=5)
-    bt1 = Button(window,
+    bott1 = Button(window,
                  foreground='blue',
                  text='Cadastrar Produto',
                  image='',
@@ -219,9 +221,9 @@ def window():
                  borderwidth=5,
                  activeforeground='red',
                  padx=5,
-                 command=bot1
+                 command=botCadastrar
                  )
-    bt2 = Button(window,
+    bott2 = Button(window,
                  foreground='blue',
                  text='Apagar Produto',
                  image='',
@@ -231,7 +233,7 @@ def window():
                  padx=5,
                  command=bot2
                  )
-    bt3 = Button(window,
+    bott3 = Button(window,
                  foreground='blue',
                  text='Editar Produto',
                  image='',
@@ -241,7 +243,7 @@ def window():
                  padx=5,
                  command=bot3
                  )
-    bt4 = Button(window,
+    bott4 = Button(window,
                  foreground='blue',
                  text='Calcular',
                  image='',
@@ -251,7 +253,7 @@ def window():
                  padx=5,
                  command=bot4
                  )
-    bt5 = Button(window,
+    bott5 = Button(window,
                  foreground='blue',
                  text='Valores',
                  image='',
@@ -261,7 +263,7 @@ def window():
                  padx=5,
                  command=bot5
                  )
-    bt6 = Button(window,
+    bott6 = Button(window,
                  foreground='blue',
                  text='Ferramentas',
                  image='',
@@ -271,7 +273,7 @@ def window():
                  padx=5,
                  command=bot6
                  )
-    bt7 = Button(window,
+    bott7 = Button(window,
                  text='Sair',
 
                  image='',
@@ -283,18 +285,18 @@ def window():
                  foreground='blue',
 
                  )
-    bt1.grid(row=0, column=0)
-    bt2.grid(row=1, column=0)
-    bt3.grid(row=2, column=0)
-    bt4.grid(row=3, column=0)
-    bt5.grid(row=4, column=0)
-    bt6.grid(row=5, column=0)
-    bt7.grid(row=8, column=0)
-    bvindo()
+    bott1.grid(row=0, column=0)
+    bott2.grid(row=1, column=0)
+    bott3.grid(row=2, column=0)
+    bott4.grid(row=3, column=0)
+    bott5.grid(row=4, column=0)
+    bott6.grid(row=5, column=0)
+    bott7.grid(row=8, column=0)
+    #bvindo()
     window.mainloop()
 
 
-def bot1():
+def botCadastrar():
     global cProdu_label, cProdu_entry, cProduv_entry, cProdu
     cProdu = Tk()
     cProdu.colormapwindows()
@@ -345,16 +347,17 @@ def bot1():
 
 
 def cprod():
-
+    global produtos
 
     produtos = (f'Produto: {cProdu_entry.get()} Valor: R${cProduv_entry.get()},00'.replace('{}', ''))
-    produtos = produtos.replace('{}', '')
     screen['text'] = 'Ultimo Cadastrado', produtos
     cProdu.destroy()
 
     with open('produtos.txt', 'w') as f:
-        f.write(f'{produtos}\n')
+        while produtos == True:
+            f.write(f'{produtos}\n')
         return '\n', f.write(f'{produtos}\n')
+        produtos = False
 
 
 def bvindo():
@@ -367,11 +370,14 @@ def bvindo():
 
 
 def bot2():
-    return
+    listaProdutos = [listaProdutos.append(produtos)]
+    with open('produtos.txt', 'w') as v:
+        v.write((f'{listaProdutos}'))
 
 
 def bot3():
-    open('cadastro.txt')
+
+    screen1['text'] = produtos
 
     return
 
@@ -398,7 +404,7 @@ def bot7():
     login.quit()
 
 
-# window()
+window()
 
 
 login.mainloop()

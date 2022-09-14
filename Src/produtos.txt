@@ -1,2 +1,1 @@
-Produto: Bolsa Valor: R$50,00
-Produto: Bolsa Valor: R$50,00
+Produto: Santos Valor: R$180,00
