@@ -1,4 +1,4 @@
-# Welcome to Limão 
+# Welcome to Limão 🍋
 
 For full documentation visit ......
 
@@ -11,4 +11,4 @@ For full documentation visit ......
 
 ## Project layout
 
-![]()
+![](../Limão/limon.png)
