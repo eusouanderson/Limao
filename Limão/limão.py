@@ -11,7 +11,6 @@ conect = []
 conect1 = []
 name = []
 
-
 def loginCadastro():
     def cadastrar():
         global conect, conect1, nome
@@ -38,8 +37,9 @@ def loginCadastro():
             return loginCadastro()
 
     master1 = Tk()
-    icon = PhotoImage(master=master1, file='icon.png')
-    master1.wm_iconphoto(True, icon)
+    
+    #icon = PhotoImage(master=master1, file='icon.png')
+    #master1.wm_iconphoto(True, icon)
     master1.config(bg='#5d8aa8')
     master1.title('Cadastro')
     master1.geometry('290x500+510+100')  # largura x altura dist esq + dist top
@@ -93,8 +93,8 @@ def loginCadastro():
 
 # Login
 vr = Tk()
-icon = PhotoImage(master=vr, file='icon.png')
-vr.wm_iconphoto(True, icon)
+#icon = PhotoImage(master=vr, file="icon.png")
+#vr.wm_iconphoto(True, icon)
 vr.title('Login')
 vr.config(bg='#5d8aa8')
 vr.geometry('490x500+400+100')  # largura x altura dist esq + dist top
@@ -473,8 +473,5 @@ def bot6():
 def exit():
     login.quit()
 
-
-window()
-
-
+#if __name__ == "___main__" :
 login.mainloop()
