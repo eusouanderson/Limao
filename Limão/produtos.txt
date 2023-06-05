@@ -1,1 +1,1 @@
-[('Produto:', 'camisa'), ('Valor: R$', '50')]
+[('Produto:', 'Laranja'), ('Valor: R$', '15,00')]
